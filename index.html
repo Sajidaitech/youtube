@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Start Screen -->
+        <!-- Start Screen with Subscribe -->
         <div id="startScreen" class="screen active">
             <div class="card start-card">
                 <img src="vt.png" alt="Vexta Tech" class="logo-large">
@@ -16,12 +16,29 @@
                 <p class="subtitle">Test your knowledge with 15 questions</p>
                 <p class="info-text">Easy → Medium → Hard</p>
                 
-                <button class="btn-primary" id="startBtn">
+                <!-- Visitor Counter -->
+                <div class="visitor-counter">
+                    <span class="counter-icon">👥</span>
+                    <span class="counter-text">Visitors: <span id="visitorCount">0</span></span>
+                </div>
+
+                <!-- Subscribe Section -->
+                <div class="subscribe-section">
+                    <p class="subscribe-message">📢 Subscribe to continue!</p>
+                    <a href="https://www.youtube.com/@VextaTech" target="_blank" class="subscribe-link" id="subscribeLink">
+                        <img src="subscribe.png" alt="Subscribe" class="subscribe-image">
+                    </a>
+                    <p class="subscribe-note">Click the button above to subscribe</p>
+                </div>
+
+                <!-- Start Button (Initially Disabled) -->
+                <button class="btn-primary" id="startBtn" disabled>
                     <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8 5v14l11-7z"/>
                     </svg>
                     Start Quiz
                 </button>
+                <p class="enable-text" id="enableText">Subscribe first to enable the quiz</p>
                 
                 <div class="info-badges">
                     <span class="badge">⏱️ 15s per question</span>
@@ -101,7 +118,7 @@
                 </button>
 
                 <div class="social-buttons">
-                    <a href="#" class="social-link" target="_blank">
+                    <a href="https://www.youtube.com/@VextaTech" class="social-link" target="_blank">
                         <img src="subscribe.png" alt="Subscribe">
                     </a>
                     <a href="#" class="social-link" target="_blank">

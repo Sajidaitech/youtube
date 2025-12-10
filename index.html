@@ -8,32 +8,69 @@
 </head>
 <body>
     <div class="container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <div class="start-card">
+                <div class="logo-container-start">
+                    <img src="https://i.postimg.cc/6qYvZfqC/image.png" alt="Vexta Tech Logo" class="logo-start">
+                </div>
+                
+                <div class="brain-animation">
+                    <svg class="brain-icon-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a9 9 0 0 0-9 9v4a9 9 0 0 0 18 0v-4a9 9 0 0 0-9-9z"/>
+                        <path d="M12 2v20"/>
+                        <path d="M12 7h.01"/>
+                        <path d="M12 12h.01"/>
+                        <path d="M12 17h.01"/>
+                    </svg>
+                </div>
+                
+                <h1 class="start-title">Tricky Riddles</h1>
+                <h2 class="start-subtitle">Quiz Game</h2>
+                <p class="start-description">Test your brain with 12 mind-bending riddles!<br>You have 10 seconds per question. Good luck!</p>
+                
+                <button class="play-btn" id="playBtn">
+                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Push and Play
+                </button>
+                
+                <div class="start-features">
+                    <div class="feature">
+                        <span class="feature-icon">⏱️</span>
+                        <span>10s per question</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🎯</span>
+                        <span>12 Questions</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🏆</span>
+                        <span>Score & Results</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Quiz Screen -->
-        <div id="quizScreen" class="screen active">
+        <div id="quizScreen" class="screen">
             <div class="quiz-card">
                 <!-- Logo -->
                 <div class="logo-container">
-                    <img src="logo.png" alt="Vexta Tech Logo" class="logo">
+                    <img src="vt.png" alt="Vexta Tech Logo" class="logo">
                 </div>
                 
                 <!-- Header -->
                 <div class="header">
                     <div class="title-section">
-                        <svg class="brain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2a9 9 0 0 0-9 9v4a9 9 0 0 0 18 0v-4a9 9 0 0 0-9-9z"/>
-                            <path d="M12 2v20"/>
-                            <path d="M12 7h.01"/>
-                            <path d="M12 12h.01"/>
-                            <path d="M12 17h.01"/>
-                        </svg>
                         <h2 class="title">Tricky Riddles Quiz Game</h2>
                     </div>
                     <div class="stats">
                         <div class="timer" id="timer">
-                            <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
+                            <div class="logo-container">
+                            <img src="vt.png" alt="Vexta Tech Logo" class="logo">
+                        </div>
                             <span id="timeLeft">10</span>s
                         </div>
                         <div class="score">
@@ -98,7 +135,7 @@
             <div class="results-card">
                 <!-- Logo -->
                 <div class="logo-container">
-                    <img src="logo.png" alt="Vexta Tech Logo" class="logo">
+                    <img src="https://i.postimg.cc/6qYvZfqC/image.png" alt="Vexta Tech Logo" class="logo">
                 </div>
                 
                 <div class="emoji" id="resultEmoji">🏆</div>

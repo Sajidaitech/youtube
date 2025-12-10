@@ -82,8 +82,10 @@ let timerInterval = null;
 let selectedAnswer = null;
 
 // DOM Elements
+const startScreen = document.getElementById('startScreen');
 const quizScreen = document.getElementById('quizScreen');
 const resultsScreen = document.getElementById('resultsScreen');
+const playBtn = document.getElementById('playBtn');
 const questionText = document.getElementById('questionText');
 const optionsContainer = document.getElementById('optionsContainer');
 const explanation = document.getElementById('explanation');
@@ -105,6 +107,12 @@ const restartBtn = document.getElementById('restartBtn');
 function initGame() {
     totalQuestions.textContent = questions.length;
     totalQuestionsProgress.textContent = questions.length;
+}
+
+// Start Quiz
+function startQuiz() {
+    startScreen.classList.remove('active');
+    quizScreen.classList.add('active');
     loadQuestion();
 }
 
@@ -280,12 +288,11 @@ function restartGame() {
     currentScore.textContent = '0';
     
     resultsScreen.classList.remove('active');
-    quizScreen.classList.add('active');
-    
-    loadQuestion();
+    startScreen.classList.add('active');
 }
 
 // Event Listeners
+playBtn.addEventListener('click', startQuiz);
 nextBtn.addEventListener('click', nextQuestion);
 continueBtn.addEventListener('click', nextQuestion);
 restartBtn.addEventListener('click', restartGame);

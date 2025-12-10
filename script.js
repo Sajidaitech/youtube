@@ -1,301 +1,345 @@
-// Quiz Questions Data
-const questions = [
+// Quiz Questions - Organized by Difficulty
+const quizQuestions = [
+    // EASY QUESTIONS (1-5)
     {
-        question: "What has cities, but no houses; forests, but no trees; and water, but no fish?",
-        options: ["A map", "A desert", "A painting", "A dream"],
+        question: "What does 'WWW' stand for in a website address?",
+        options: ["World Wide Web", "World Web Wide", "Web World Wide", "Wide World Web"],
         correct: 0,
-        explanation: "A map shows cities, forests, and water, but doesn't contain the actual things!"
+        difficulty: "easy",
+        explanation: "WWW stands for World Wide Web, the system of interlinked hypertext documents accessed via the Internet."
     },
     {
-        question: "A man rides into town on Friday. He stays for three full days and leaves on Friday. How is this possible?",
-        options: ["Time travel", "His horse's name was Friday", "It's a different Friday", "He came back"],
+        question: "Which company developed the Windows operating system?",
+        options: ["Apple", "Microsoft", "Google", "IBM"],
         correct: 1,
-        explanation: "His horse's name was Friday!"
+        difficulty: "easy",
+        explanation: "Microsoft developed Windows, which first launched in 1985 and became the most popular operating system."
     },
     {
-        question: "What has a face and two hands, but no arms or legs?",
-        options: ["A clock", "A person", "A robot", "A painting"],
-        correct: 0,
-        explanation: "A clock has a face and two hands (hour and minute)!"
-    },
-    {
-        question: "What is full of holes but still holds water?",
-        options: ["A bucket", "A sponge", "A bottle", "A net"],
-        correct: 1,
-        explanation: "A sponge is full of tiny holes but can absorb and hold water!"
-    },
-    {
-        question: "If an electric train is traveling south, and the wind is blowing west, which way does the smoke blow?",
-        options: ["West", "South", "East", "There is no smoke"],
-        correct: 3,
-        explanation: "There is no smoke - it's an electric train!"
-    },
-    {
-        question: "What word in the English language is always spelled incorrectly?",
-        options: ["Misspelled", "Wrong", "Incorrectly", "Mistake"],
+        question: "What is the largest planet in our solar system?",
+        options: ["Saturn", "Earth", "Jupiter", "Neptune"],
         correct: 2,
-        explanation: "The word 'incorrectly' is literally the only word that is always spelled incorrectly!"
+        difficulty: "easy",
+        explanation: "Jupiter is the largest planet in our solar system, with a mass more than twice that of all other planets combined!"
     },
     {
-        question: "What is next in this sequence: O, T, T, F, F, S, S, E, ___?",
-        options: ["T", "N", "I", "A"],
-        correct: 1,
-        explanation: "N! The letters stand for One, Two, Three, Four, Five, Six, Seven, Eight, Nine."
+        question: "What does 'USB' stand for?",
+        options: ["Universal Serial Bus", "United System Base", "Universal System Board", "Unified Serial Board"],
+        correct: 0,
+        difficulty: "easy",
+        explanation: "USB stands for Universal Serial Bus, a standard connection interface for computers and electronic devices."
     },
     {
-        question: "What belongs to you, but other people use it more than you do?",
-        options: ["Your phone", "Your name", "Your house", "Your car"],
-        correct: 1,
-        explanation: "Your name! Other people say it and use it more often than you do."
+        question: "How many continents are there on Earth?",
+        options: ["5", "6", "7", "8"],
+        correct: 2,
+        difficulty: "easy",
+        explanation: "There are 7 continents: Africa, Antarctica, Asia, Europe, North America, Australia, and South America."
+    },
+    
+    // MEDIUM QUESTIONS (6-10)
+    {
+        question: "What programming language is known as the 'language of the web'?",
+        options: ["Python", "Java", "JavaScript", "C++"],
+        correct: 2,
+        difficulty: "medium",
+        explanation: "JavaScript is the primary programming language for web development, running in browsers to create interactive websites."
     },
     {
-        question: "Which two planets in our solar system have no moons?",
-        options: ["Mars and Venus", "Mercury and Venus", "Earth and Mars", "Venus and Neptune"],
-        correct: 1,
-        explanation: "Mercury and Venus are the only planets without any moons!"
+        question: "What does 'CPU' stand for in a computer?",
+        options: ["Central Processing Unit", "Computer Personal Unit", "Central Program Utility", "Computer Processing Unit"],
+        correct: 0,
+        difficulty: "medium",
+        explanation: "CPU stands for Central Processing Unit, often called the 'brain' of the computer that executes instructions."
     },
     {
-        question: "What is the largest desert in the world?",
-        options: ["Sahara", "Antarctica", "Arabian", "Gobi"],
-        correct: 1,
-        explanation: "Antarctica! Deserts are defined by low rainfall, not just sand and heat."
+        question: "In what year did the first iPhone release?",
+        options: ["2005", "2006", "2007", "2008"],
+        correct: 2,
+        difficulty: "medium",
+        explanation: "The first iPhone was released on June 29, 2007, revolutionizing the smartphone industry."
     },
     {
-        question: "If you had a match, a kerosene lamp, a candle, and a fireplace, which one would you light first?",
-        options: ["The kerosene lamp", "The match", "The candle", "The fireplace"],
-        correct: 1,
-        explanation: "You would light the match first! You need it to light everything else."
+        question: "What is the chemical symbol for gold?",
+        options: ["Go", "Gd", "Au", "Ag"],
+        correct: 2,
+        difficulty: "medium",
+        explanation: "Au is the chemical symbol for gold, derived from the Latin word 'aurum' meaning gold."
     },
     {
-        question: "How can you add eight 8's to get the number 1,000?",
-        options: ["8+8+8+8+8+8+8+8", "888+88+8+8+8", "Impossible", "88+88+88+88+88"],
+        question: "Which planet is known as the Red Planet?",
+        options: ["Venus", "Mars", "Jupiter", "Mercury"],
         correct: 1,
-        explanation: "888 + 88 + 8 + 8 + 8 = 1,000!"
+        difficulty: "medium",
+        explanation: "Mars is called the Red Planet due to iron oxide (rust) on its surface giving it a reddish appearance."
+    },
+    
+    // HARD QUESTIONS (11-15)
+    {
+        question: "What does 'HTTP' stand for?",
+        options: ["HyperText Transfer Protocol", "High Transfer Text Protocol", "HyperText Transmission Protocol", "High Text Transfer Protocol"],
+        correct: 0,
+        difficulty: "hard",
+        explanation: "HTTP stands for HyperText Transfer Protocol, the foundation of data communication on the World Wide Web."
+    },
+    {
+        question: "Who is considered the father of modern computing?",
+        options: ["Bill Gates", "Steve Jobs", "Alan Turing", "Tim Berners-Lee"],
+        correct: 2,
+        difficulty: "hard",
+        explanation: "Alan Turing is considered the father of modern computing for his work on the Turing machine and code-breaking."
+    },
+    {
+        question: "What is the speed of light in a vacuum?",
+        options: ["299,792,458 m/s", "300,000,000 m/s", "299,000,000 m/s", "298,792,458 m/s"],
+        correct: 0,
+        difficulty: "hard",
+        explanation: "The speed of light in a vacuum is exactly 299,792,458 meters per second, a fundamental constant of nature."
+    },
+    {
+        question: "In binary, what is the decimal number 15?",
+        options: ["1111", "1011", "1101", "1001"],
+        correct: 0,
+        difficulty: "hard",
+        explanation: "15 in binary is 1111 (8+4+2+1=15). Binary uses only 0s and 1s to represent numbers."
+    },
+    {
+        question: "What does 'AI' stand for in technology?",
+        options: ["Automated Intelligence", "Artificial Intelligence", "Advanced Intelligence", "Algorithmic Intelligence"],
+        correct: 1,
+        difficulty: "hard",
+        explanation: "AI stands for Artificial Intelligence, the simulation of human intelligence by machines and computer systems."
     }
 ];
 
 // Game State
-let currentQuestion = 0;
-let score = 0;
-let timeLeft = 10;
-let timerInterval = null;
-let selectedAnswer = null;
+let currentQuestionIndex = 0;
+let playerScore = 0;
+let timeRemaining = 15;
+let countdownTimer = null;
+let answerSelected = null;
 
-// DOM Elements
+// Get DOM Elements
 const startScreen = document.getElementById('startScreen');
 const quizScreen = document.getElementById('quizScreen');
 const resultsScreen = document.getElementById('resultsScreen');
-const playBtn = document.getElementById('playBtn');
+const startBtn = document.getElementById('startBtn');
+const timeDisplay = document.getElementById('timeDisplay');
+const timerBox = document.getElementById('timerBox');
+const scoreDisplay = document.getElementById('scoreDisplay');
+const totalDisplay = document.getElementById('totalDisplay');
+const questionNumber = document.getElementById('questionNumber');
+const difficultyTag = document.getElementById('difficultyTag');
+const progressBar = document.getElementById('progressBar');
 const questionText = document.getElementById('questionText');
 const optionsContainer = document.getElementById('optionsContainer');
-const explanation = document.getElementById('explanation');
-const explanationText = document.getElementById('explanationText');
+const feedbackBox = document.getElementById('feedbackBox');
+const feedbackText = document.getElementById('feedbackText');
 const nextBtn = document.getElementById('nextBtn');
-const timesUp = document.getElementById('timesUp');
-const continueBtn = document.getElementById('continueBtn');
-const timer = document.getElementById('timer');
-const timeLeftSpan = document.getElementById('timeLeft');
-const currentScore = document.getElementById('currentScore');
-const totalQuestions = document.getElementById('totalQuestions');
-const currentQuestionNum = document.getElementById('currentQuestionNum');
-const totalQuestionsProgress = document.getElementById('totalQuestionsProgress');
-const progressPercent = document.getElementById('progressPercent');
-const progressFill = document.getElementById('progressFill');
+const timeoutBox = document.getElementById('timeoutBox');
+const timeoutBtn = document.getElementById('timeoutBtn');
+const resultEmoji = document.getElementById('resultEmoji');
+const resultTitle = document.getElementById('resultTitle');
+const resultScore = document.getElementById('resultScore');
+const resultPercentage = document.getElementById('resultPercentage');
 const restartBtn = document.getElementById('restartBtn');
 
-// Initialize Game
-function initGame() {
-    totalQuestions.textContent = questions.length;
-    totalQuestionsProgress.textContent = questions.length;
+// Initialize Quiz
+function initializeQuiz() {
+    totalDisplay.textContent = quizQuestions.length;
 }
 
 // Start Quiz
 function startQuiz() {
     startScreen.classList.remove('active');
     quizScreen.classList.add('active');
-    loadQuestion();
+    displayQuestion();
 }
 
-// Load Question
-function loadQuestion() {
-    const q = questions[currentQuestion];
+// Display Current Question
+function displayQuestion() {
+    const currentQ = quizQuestions[currentQuestionIndex];
     
     // Update question text
-    questionText.textContent = q.question;
+    questionText.textContent = currentQ.question;
     
-    // Update progress
-    currentQuestionNum.textContent = currentQuestion + 1;
-    const progress = ((currentQuestion + 1) / questions.length) * 100;
-    progressPercent.textContent = Math.round(progress) + '%';
-    progressFill.style.width = progress + '%';
+    // Update question number and progress
+    questionNumber.textContent = currentQuestionIndex + 1;
+    const progressPercentage = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
+    progressBar.style.width = progressPercentage + '%';
     
-    // Reset state
-    selectedAnswer = null;
-    explanation.classList.add('hidden');
+    // Update difficulty tag
+    difficultyTag.textContent = currentQ.difficulty.toUpperCase();
+    difficultyTag.className = 'difficulty-tag ' + currentQ.difficulty;
+    
+    // Reset UI elements
+    answerSelected = null;
+    feedbackBox.classList.add('hidden');
     nextBtn.classList.add('hidden');
-    timesUp.classList.add('hidden');
+    timeoutBox.classList.add('hidden');
     
-    // Load options
+    // Display options
     optionsContainer.innerHTML = '';
-    q.options.forEach((option, index) => {
-        const optionDiv = document.createElement('div');
-        optionDiv.className = 'option';
-        optionDiv.textContent = option;
-        optionDiv.onclick = () => selectAnswer(index);
-        optionsContainer.appendChild(optionDiv);
+    currentQ.options.forEach((optionText, index) => {
+        const optionElement = document.createElement('div');
+        optionElement.className = 'option';
+        optionElement.textContent = optionText;
+        optionElement.onclick = () => handleAnswerSelection(index);
+        optionsContainer.appendChild(optionElement);
     });
     
-    // Start timer
-    timeLeft = 10;
+    // Start countdown
+    timeRemaining = 15;
     updateTimerDisplay();
-    startTimer();
+    startCountdown();
 }
 
-// Timer Functions
-function startTimer() {
-    if (timerInterval) clearInterval(timerInterval);
+// Start Countdown Timer
+function startCountdown() {
+    if (countdownTimer) clearInterval(countdownTimer);
     
-    timerInterval = setInterval(() => {
-        timeLeft--;
+    countdownTimer = setInterval(() => {
+        timeRemaining--;
         updateTimerDisplay();
         
-        if (timeLeft <= 0) {
-            handleTimeout();
+        if (timeRemaining <= 0) {
+            handleTimeExpired();
         }
     }, 1000);
 }
 
-function stopTimer() {
-    if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null;
+// Stop Countdown Timer
+function stopCountdown() {
+    if (countdownTimer) {
+        clearInterval(countdownTimer);
+        countdownTimer = null;
     }
 }
 
+// Update Timer Display
 function updateTimerDisplay() {
-    timeLeftSpan.textContent = timeLeft;
+    timeDisplay.textContent = timeRemaining;
     
-    // Update timer color
-    timer.classList.remove('green', 'yellow', 'red');
-    if (timeLeft > 6) {
-        timer.classList.add('green');
-    } else if (timeLeft > 3) {
-        timer.classList.add('yellow');
+    timerBox.classList.remove('green', 'yellow', 'red');
+    if (timeRemaining > 10) {
+        timerBox.classList.add('green');
+    } else if (timeRemaining > 5) {
+        timerBox.classList.add('yellow');
     } else {
-        timer.classList.add('red');
+        timerBox.classList.add('red');
     }
 }
 
 // Handle Answer Selection
-function selectAnswer(index) {
-    if (selectedAnswer !== null || timeLeft === 0) return;
+function handleAnswerSelection(selectedIndex) {
+    if (answerSelected !== null || timeRemaining === 0) return;
     
-    selectedAnswer = index;
-    stopTimer();
+    answerSelected = selectedIndex;
+    stopCountdown();
     
-    const q = questions[currentQuestion];
-    const options = optionsContainer.querySelectorAll('.option');
+    const currentQ = quizQuestions[currentQuestionIndex];
+    const allOptions = optionsContainer.querySelectorAll('.option');
     
     // Disable all options
-    options.forEach(opt => opt.classList.add('disabled'));
+    allOptions.forEach(opt => opt.classList.add('disabled'));
     
-    // Show correct and wrong answers
-    options.forEach((opt, i) => {
-        if (i === q.correct) {
+    // Mark correct and wrong answers
+    allOptions.forEach((opt, idx) => {
+        if (idx === currentQ.correct) {
             opt.classList.add('correct');
             opt.innerHTML += '<svg class="option-icon icon-correct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>';
-        } else if (i === selectedAnswer) {
+        } else if (idx === selectedIndex) {
             opt.classList.add('wrong');
             opt.innerHTML += '<svg class="option-icon icon-wrong" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
         }
     });
     
-    // Update score
-    if (index === q.correct) {
-        score++;
-        currentScore.textContent = score;
+    // Update score if correct
+    if (selectedIndex === currentQ.correct) {
+        playerScore++;
+        scoreDisplay.textContent = playerScore;
     }
     
-    // Show explanation
-    explanationText.textContent = q.explanation;
-    explanation.classList.remove('hidden');
+    // Show feedback
+    feedbackText.textContent = currentQ.explanation;
+    feedbackBox.classList.remove('hidden');
     nextBtn.classList.remove('hidden');
 }
 
-// Handle Timeout
-function handleTimeout() {
-    stopTimer();
+// Handle Time Expired
+function handleTimeExpired() {
+    stopCountdown();
     
-    const options = optionsContainer.querySelectorAll('.option');
-    options.forEach(opt => opt.classList.add('disabled'));
+    const allOptions = optionsContainer.querySelectorAll('.option');
+    allOptions.forEach(opt => opt.classList.add('disabled'));
     
-    // Show correct answer
-    const q = questions[currentQuestion];
-    options[q.correct].classList.add('correct');
-    options[q.correct].innerHTML += '<svg class="option-icon icon-correct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>';
+    // Highlight correct answer
+    const currentQ = quizQuestions[currentQuestionIndex];
+    allOptions[currentQ.correct].classList.add('correct');
+    allOptions[currentQ.correct].innerHTML += '<svg class="option-icon icon-correct" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>';
     
-    // Show explanation and time's up message
-    explanationText.textContent = q.explanation;
-    explanation.classList.remove('hidden');
-    timesUp.classList.remove('hidden');
+    // Show feedback
+    feedbackText.textContent = currentQ.explanation;
+    feedbackBox.classList.remove('hidden');
+    timeoutBox.classList.remove('hidden');
 }
 
-// Next Question
-function nextQuestion() {
-    if (currentQuestion < questions.length - 1) {
-        currentQuestion++;
-        loadQuestion();
+// Move to Next Question
+function moveToNextQuestion() {
+    if (currentQuestionIndex < quizQuestions.length - 1) {
+        currentQuestionIndex++;
+        displayQuestion();
     } else {
-        showResults();
+        displayResults();
     }
 }
 
-// Show Results
-function showResults() {
+// Display Results
+function displayResults() {
     quizScreen.classList.remove('active');
     resultsScreen.classList.add('active');
     
-    const percentage = (score / questions.length) * 100;
+    const percentageScore = (playerScore / quizQuestions.length) * 100;
     let emoji, title;
     
-    if (percentage === 100) {
+    if (percentageScore === 100) {
         emoji = '🏆';
-        title = 'ABSOLUTE GENIUS!';
-    } else if (percentage >= 80) {
-        emoji = '🧠';
-        title = 'BRILLIANT MIND!';
-    } else if (percentage >= 60) {
-        emoji = '⭐';
-        title = 'SMART THINKER!';
-    } else if (percentage >= 40) {
+        title = 'PERFECT SCORE!';
+    } else if (percentageScore >= 80) {
+        emoji = '🎉';
+        title = 'EXCELLENT!';
+    } else if (percentageScore >= 60) {
+        emoji = '👍';
+        title = 'GOOD JOB!';
+    } else if (percentageScore >= 40) {
         emoji = '💪';
-        title = 'GOOD EFFORT!';
+        title = 'KEEP TRYING!';
     } else {
-        emoji = '🤔';
-        title = 'KEEP PRACTICING!';
+        emoji = '📚';
+        title = 'PRACTICE MORE!';
     }
     
-    document.getElementById('resultEmoji').textContent = emoji;
-    document.getElementById('resultTitle').textContent = title;
-    document.getElementById('finalScore').textContent = score + '/' + questions.length;
-    document.getElementById('percentage').textContent = 'You scored ' + percentage.toFixed(0) + '%';
+    resultEmoji.textContent = emoji;
+    resultTitle.textContent = title;
+    resultScore.textContent = playerScore + '/' + quizQuestions.length;
+    resultPercentage.textContent = 'You scored ' + Math.round(percentageScore) + '%';
 }
 
-// Restart Game
-function restartGame() {
-    currentQuestion = 0;
-    score = 0;
-    currentScore.textContent = '0';
+// Restart Quiz
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    playerScore = 0;
+    scoreDisplay.textContent = '0';
     
     resultsScreen.classList.remove('active');
     startScreen.classList.add('active');
 }
 
 // Event Listeners
-playBtn.addEventListener('click', startQuiz);
-nextBtn.addEventListener('click', nextQuestion);
-continueBtn.addEventListener('click', nextQuestion);
-restartBtn.addEventListener('click', restartGame);
+startBtn.addEventListener('click', startQuiz);
+nextBtn.addEventListener('click', moveToNextQuestion);
+timeoutBtn.addEventListener('click', moveToNextQuestion);
+restartBtn.addEventListener('click', restartQuiz);
 
-// Start the game
-initGame();
+// Initialize on load
+initializeQuiz();

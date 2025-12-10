@@ -3,166 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tricky Riddles Quiz Game</title>
+    <title>Tech & Knowledge Quiz - Vexta Tech</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <!-- Start Screen -->
         <div id="startScreen" class="screen active">
-            <div class="start-card">
-                <div class="logo-container-start">
-                    <img src="https://i.postimg.cc/6qYvZfqC/image.png" alt="Vexta Tech Logo" class="logo-start">
-                </div>
+            <div class="card start-card">
+                <img src="vt.png" alt="Vexta Tech" class="logo-large">
+                <h1 class="main-title">Tech & Knowledge Quiz</h1>
+                <p class="subtitle">Test your knowledge with 15 questions</p>
+                <p class="info-text">Easy → Medium → Hard</p>
                 
-                <div class="brain-animation">
-                    <svg class="brain-icon-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2a9 9 0 0 0-9 9v4a9 9 0 0 0 18 0v-4a9 9 0 0 0-9-9z"/>
-                        <path d="M12 2v20"/>
-                        <path d="M12 7h.01"/>
-                        <path d="M12 12h.01"/>
-                        <path d="M12 17h.01"/>
-                    </svg>
-                </div>
-                
-                <h1 class="start-title">Tricky Riddles</h1>
-                <h2 class="start-subtitle">Quiz Game</h2>
-                <p class="start-description">Test your brain with 12 mind-bending riddles!<br>You have 10 seconds per question. Good luck!</p>
-                
-                <button class="play-btn" id="playBtn">
-                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                <button class="btn-primary" id="startBtn">
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8 5v14l11-7z"/>
                     </svg>
-                    Push and Play
+                    Start Quiz
                 </button>
                 
-                <div class="start-features">
-                    <div class="feature">
-                        <span class="feature-icon">⏱️</span>
-                        <span>10s per question</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">🎯</span>
-                        <span>12 Questions</span>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">🏆</span>
-                        <span>Score & Results</span>
-                    </div>
+                <div class="info-badges">
+                    <span class="badge">⏱️ 15s per question</span>
+                    <span class="badge">🎯 15 Questions</span>
                 </div>
             </div>
         </div>
 
         <!-- Quiz Screen -->
         <div id="quizScreen" class="screen">
-            <div class="quiz-card">
-                <!-- Logo -->
-                <div class="logo-container">
-                    <img src="vt.png" alt="Vexta Tech Logo" class="logo">
-                </div>
-                
-                <!-- Header -->
-                <div class="header">
-                    <div class="title-section">
-                        <h2 class="title">Tricky Riddles Quiz Game</h2>
-                    </div>
-                    <div class="stats">
-                        <div class="timer" id="timer">
-                            <div class="logo-container">
-                            <img src="vt.png" alt="Vexta Tech Logo" class="logo">
+            <div class="card quiz-card">
+                <div class="quiz-header">
+                    <img src="vt.png" alt="Vexta Tech" class="logo-small">
+                    
+                    <div class="stats-row">
+                        <div class="timer-box" id="timerBox">
+                            <svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <span id="timeDisplay">15</span>s
                         </div>
-                            <span id="timeLeft">10</span>s
-                        </div>
-                        <div class="score">
-                            <span id="currentScore">0</span>/<span id="totalQuestions">12</span>
+                        <div class="score-box">
+                            <span id="scoreDisplay">0</span>/<span id="totalDisplay">15</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Progress Bar -->
-                <div class="progress-section">
-                    <div class="progress-info">
-                        <span>Question <span id="currentQuestionNum">1</span> of <span id="totalQuestionsProgress">12</span></span>
-                        <span id="progressPercent">8%</span>
+                <div class="progress-container">
+                    <div class="progress-text">
+                        <span>Question <span id="questionNumber">1</span> of 15</span>
+                        <span class="difficulty-tag" id="difficultyTag">Easy</span>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-track">
+                        <div class="progress-bar" id="progressBar"></div>
                     </div>
                 </div>
 
-                <!-- Question Section -->
-                <div class="question-section">
-                    <div class="question-box">
+                <div class="question-container">
+                    <div class="question-card">
                         <h2 id="questionText"></h2>
                     </div>
-
-                    <!-- Options -->
-                    <div class="options" id="optionsContainer"></div>
+                    
+                    <div class="options-container" id="optionsContainer"></div>
                 </div>
 
-                <!-- Explanation (Hidden by default) -->
-                <div class="explanation hidden" id="explanation">
-                    <span class="bulb-icon">💡</span>
-                    <p id="explanationText"></p>
+                <div class="feedback-box hidden" id="feedbackBox">
+                    <div class="feedback-icon">💡</div>
+                    <p id="feedbackText"></p>
                 </div>
 
-                <!-- Next Button (Hidden by default) -->
-                <button class="next-btn hidden" id="nextBtn">Next Question →</button>
-
-                <!-- Time's Up Message (Hidden by default) -->
-                <div class="times-up hidden" id="timesUp">
-                    <p class="times-up-text">⏰ Time's Up!</p>
-                    <button class="continue-btn" id="continueBtn">Continue</button>
-                </div>
-
-                <!-- Social Buttons Bar -->
-                <div class="social-bar">
-                    <a href="#" class="social-btn subscribe-btn" target="_blank">
-                        <img src="subscribe.png" alt="Subscribe">
-                    </a>
-                    <a href="#" class="social-btn like-btn" target="_blank">
-                        <img src="like.jpg" alt="Like">
-                    </a>
-                    <a href="#" class="social-btn share-btn" target="_blank">
-                        <img src="share.jpg" alt="Share">
-                    </a>
+                <button class="btn-primary hidden" id="nextBtn">Next Question →</button>
+                
+                <div class="timeout-box hidden" id="timeoutBox">
+                    <p class="timeout-text">⏰ Time's Up!</p>
+                    <button class="btn-primary" id="timeoutBtn">Continue</button>
                 </div>
             </div>
         </div>
 
         <!-- Results Screen -->
         <div id="resultsScreen" class="screen">
-            <div class="results-card">
-                <!-- Logo -->
-                <div class="logo-container">
-                    <img src="https://i.postimg.cc/6qYvZfqC/image.png" alt="Vexta Tech Logo" class="logo">
-                </div>
+            <div class="card results-card">
+                <img src="vt.png" alt="Vexta Tech" class="logo-large">
                 
-                <div class="emoji" id="resultEmoji">🏆</div>
-                <h2 class="result-title" id="resultTitle">ABSOLUTE GENIUS!</h2>
-                <div class="final-score" id="finalScore">12/12</div>
-                <p class="percentage" id="percentage">You scored 100%</p>
-                <p class="cta">
-                    💬 Share your score in the comments!<br>
-                    👍 Like if you got 8 or more correct!
-                </p>
-                <button class="restart-btn" id="restartBtn">
-                    <svg class="restart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="result-emoji" id="resultEmoji">🏆</div>
+                <h2 class="result-title" id="resultTitle">PERFECT SCORE!</h2>
+                <div class="result-score" id="resultScore">15/15</div>
+                <p class="result-percentage" id="resultPercentage">You scored 100%</p>
+                
+                <button class="btn-primary" id="restartBtn">
+                    <svg class="icon-restart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
                         <path d="M21 3v5h-5"/>
                     </svg>
                     Try Again
                 </button>
 
-                <!-- Social Buttons Bar -->
-                <div class="social-bar">
-                    <a href="#" class="social-btn subscribe-btn" target="_blank">
+                <div class="social-buttons">
+                    <a href="#" class="social-link" target="_blank">
                         <img src="subscribe.png" alt="Subscribe">
                     </a>
-                    <a href="#" class="social-btn like-btn" target="_blank">
+                    <a href="#" class="social-link" target="_blank">
                         <img src="like.jpg" alt="Like">
                     </a>
-                    <a href="#" class="social-btn share-btn" target="_blank">
+                    <a href="#" class="social-link" target="_blank">
                         <img src="share.jpg" alt="Share">
                     </a>
                 </div>

@@ -118,12 +118,16 @@ let playerScore = 0;
 let timeRemaining = 15;
 let countdownTimer = null;
 let answerSelected = null;
+let hasSubscribed = false;
 
 // Get DOM Elements
 const startScreen = document.getElementById('startScreen');
 const quizScreen = document.getElementById('quizScreen');
 const resultsScreen = document.getElementById('resultsScreen');
 const startBtn = document.getElementById('startBtn');
+const subscribeLink = document.getElementById('subscribeLink');
+const enableText = document.getElementById('enableText');
+const visitorCount = document.getElementById('visitorCount');
 const timeDisplay = document.getElementById('timeDisplay');
 const timerBox = document.getElementById('timerBox');
 const scoreDisplay = document.getElementById('scoreDisplay');
@@ -144,13 +148,67 @@ const resultScore = document.getElementById('resultScore');
 const resultPercentage = document.getElementById('resultPercentage');
 const restartBtn = document.getElementById('restartBtn');
 
+// Initialize Visitor Counter
+function initializeVisitorCounter() {
+    // Get current count from localStorage
+    let count = localStorage.getItem('visitorCount');
+    
+    if (!count) {
+        // First time visitor
+        count = 1;
+    } else {
+        // Increment count
+        count = parseInt(count) + 1;
+    }
+    
+    // Save back to localStorage
+    localStorage.setItem('visitorCount', count);
+    
+    // Display count
+    visitorCount.textContent = count;
+}
+
+// Handle Subscribe Click
+function handleSubscribeClick() {
+    // Mark as subscribed (you can add more verification if needed)
+    hasSubscribed = true;
+    
+    // Enable start button
+    startBtn.disabled = false;
+    enableText.classList.add('hidden');
+    
+    // Change button style to show it's enabled
+    startBtn.style.opacity = '1';
+    
+    // Store subscription status
+    localStorage.setItem('hasSubscribed', 'true');
+}
+
+// Check if user already subscribed
+function checkSubscriptionStatus() {
+    const subscribed = localStorage.getItem('hasSubscribed');
+    
+    if (subscribed === 'true') {
+        hasSubscribed = true;
+        startBtn.disabled = false;
+        enableText.classList.add('hidden');
+    }
+}
+
 // Initialize Quiz
 function initializeQuiz() {
     totalDisplay.textContent = quizQuestions.length;
+    initializeVisitorCounter();
+    checkSubscriptionStatus();
 }
 
 // Start Quiz
 function startQuiz() {
+    if (!hasSubscribed) {
+        alert('Please subscribe to our YouTube channel first!');
+        return;
+    }
+    
     startScreen.classList.remove('active');
     quizScreen.classList.add('active');
     displayQuestion();
@@ -336,6 +394,7 @@ function restartQuiz() {
 }
 
 // Event Listeners
+subscribeLink.addEventListener('click', handleSubscribeClick);
 startBtn.addEventListener('click', startQuiz);
 nextBtn.addEventListener('click', moveToNextQuestion);
 timeoutBtn.addEventListener('click', moveToNextQuestion);

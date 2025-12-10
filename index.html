@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tricky Riddles Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="screen active">
+            <div class="quiz-card">
+                <!-- Header -->
+                <div class="header">
+                    <div class="title-section">
+                        <svg class="brain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a9 9 0 0 0-9 9v4a9 9 0 0 0 18 0v-4a9 9 0 0 0-9-9z"/>
+                            <path d="M12 2v20"/>
+                            <path d="M12 7h.01"/>
+                            <path d="M12 12h.01"/>
+                            <path d="M12 17h.01"/>
+                        </svg>
+                        <h1 class="title">Vexta Tech</h1>
+                        <h2 class="title">Tricky Riddles Quiz Game</h2>
+                    </div>
+                    <div class="stats">
+                        <div class="timer" id="timer">
+                            <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <span id="timeLeft">10</span>s
+                        </div>
+                        <div class="score">
+                            <span id="currentScore">0</span>/<span id="totalQuestions">12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-section">
+                    <div class="progress-info">
+                        <span>Question <span id="currentQuestionNum">1</span> of <span id="totalQuestionsProgress">12</span></span>
+                        <span id="progressPercent">8%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <!-- Question Section -->
+                <div class="question-section">
+                    <div class="question-box">
+                        <h2 id="questionText"></h2>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="options" id="optionsContainer"></div>
+                </div>
+
+                <!-- Explanation (Hidden by default) -->
+                <div class="explanation hidden" id="explanation">
+                    <span class="bulb-icon">💡</span>
+                    <p id="explanationText"></p>
+                </div>
+
+                <!-- Next Button (Hidden by default) -->
+                <button class="next-btn hidden" id="nextBtn">Next Question →</button>
+
+                <!-- Time's Up Message (Hidden by default) -->
+                <div class="times-up hidden" id="timesUp">
+                    <p class="times-up-text">⏰ Time's Up!</p>
+                    <button class="continue-btn" id="continueBtn">Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="screen">
+            <div class="results-card">
+                <div class="emoji" id="resultEmoji">🏆</div>
+                <h2 class="result-title" id="resultTitle">ABSOLUTE GENIUS!</h2>
+                <div class="final-score" id="finalScore">12/12</div>
+                <p class="percentage" id="percentage">You scored 100%</p>
+                <p class="cta">
+                    💬 Share your score in the comments!<br>
+                    👍 Like if you got 8 or more correct!
+                </p>
+                <button class="restart-btn" id="restartBtn">
+                    <svg class="restart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                        <path d="M21 3v5h-5"/>
+                    </svg>
+                    Try Again
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
